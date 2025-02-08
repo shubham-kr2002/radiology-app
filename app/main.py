@@ -1,7 +1,7 @@
 from fastapi import FastAPI
+from app.api.endpoints import router  # Importing API routes
 
-app = FastAPI()
+app = FastAPI(title="Radiology AI", description="An AI-powered radiology report generator")
 
-@app.get("/")
-def home():
-    return {"message": "Radiology AI Server is Running!"}
+# Include API routes
+app.include_router(router)
